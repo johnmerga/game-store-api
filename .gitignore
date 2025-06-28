@@ -1,0 +1,59 @@
+# Binaries
+/bin/
+/build/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of go build
+*.out
+
+# Dependency directories (vendor/)
+vendor/
+
+# Go modules cache (if not using Go 1.18+ with `go work`)
+.gomodcache/
+
+# Go workspace file (optional)
+go.work
+go.work.sum
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime*
+*.code-workspace
+
+# Logs
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Coverage/test files
+coverage.*
+*.coverprofile
+*.lcov
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated proto code (optional if you commit them)
+**/*.pb.go
+
+# Node-related (if you have any frontend or docs tooling)
+node_modules/
+EOF
