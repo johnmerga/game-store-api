@@ -1,6 +1,0 @@
-i need you to assist me on building backend with golang, i'm senior backend engineer but have no experience with golang, so i need you to assist me with the following instructions.
-- the backend is for marketplace for online game it has users and role based mechanism, i want to use postgres with sqlc,
-- i want you give the nice structure how i should use with best practice, i might use external api integrations, scripts, payment integrations, messaging queues, grpc and rest, swagger for documentation(if theres a go package that converts types into swagger thats good),socket.io, reusable functions, validators, loggers, 
-- if you have another good aproach in go it's go to go with your way but in my another programmming language i write, on endpoints i have one validator that accepts schema and returns error or passes to nest handler if that is good,if we can achiev that's good,
-- first , tell me how you would structure it 
-
