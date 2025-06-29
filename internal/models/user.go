@@ -25,7 +25,7 @@ type UserRole string
 const (
 	RoleGamer      UserRole = "gamer"
 	RoleAdmin      UserRole = "admin"
-	RoleSuperAdmin UserRole = "super_admin"
+	RoleSuperAdmin UserRole = "su-admin"
 )
 
 type UserStatus string
@@ -42,7 +42,7 @@ type CreateUserRequest struct {
 	Password  string   `json:"password" validate:"required,min=8"`
 	FirstName string   `json:"first_name" validate:"required,min=2,max=100"`
 	LastName  string   `json:"last_name" validate:"required,min=2,max=100"`
-	Role      UserRole `json:"role" validate:"required,oneof=buyer seller admin"`
+	Role      UserRole `json:"role" validate:"required,oneof=gamer admin su-admin"`
 	Phone     string   `json:"phone,omitempty" validate:"omitempty,min=10"`
 }
 
@@ -63,7 +63,7 @@ type UserResponse struct {
 	Email     string     `json:"email" example:"user@example.com"`
 	FirstName string     `json:"first_name" example:"John"`
 	LastName  string     `json:"last_name" example:"Doe"`
-	Role      UserRole   `json:"role" example:"buyer"`
+	Role      UserRole   `json:"role" example:"gamer"`
 	Status    UserStatus `json:"status" example:"active"`
 	AvatarURL *string    `json:"avatar_url,omitempty" example:"https://example.com/avatar.jpg"`
 	Phone     *string    `json:"phone,omitempty" example:"+1234567890"`

@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  db:
+    container_name: realgaming_db
+    image: postgres:16.2
+    ports:
+      - ${DB_PORT}:5432
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_EXTENSIONS: uuid-ossp pgcrypto
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/initdb:/docker-entrypoint-initdb.d
+volumes:
+  db_data:
+    driver: local
