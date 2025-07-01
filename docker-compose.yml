@@ -14,7 +14,6 @@ services:
       POSTGRES_EXTENSIONS: uuid-ossp pgcrypto
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./db/initdb:/docker-entrypoint-initdb.d
 volumes:
   db_data:
     driver: local

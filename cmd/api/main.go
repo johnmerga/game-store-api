@@ -10,6 +10,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/joho/godotenv"
 	"github.com/johnmerga/realgaming-marketplace-backend/marketplace-backend/internal/config"
 	"github.com/johnmerga/realgaming-marketplace-backend/marketplace-backend/internal/db"
 	"github.com/johnmerga/realgaming-marketplace-backend/marketplace-backend/internal/handler"
@@ -26,6 +27,9 @@ func main() {
 	// Initialize logger
 	log := logger.New()
 
+	if err := godotenv.Load(); err != nil {
+		log.Warn().Err(err).Msg("No .env file found")
+	}
 	// Load configuration
 	cfg, err := config.Load()
 	if err != nil {

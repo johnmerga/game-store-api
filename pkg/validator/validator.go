@@ -10,10 +10,6 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-type ValidationRule interface {
-	GetSchema() interface{}
-}
-
 type Validator struct {
 	validate *validator.Validate
 }
@@ -55,14 +51,14 @@ func (v *Validator) ValidateStruct(s interface{}) error {
 	return nil
 }
 
-func (v *Validator) ValidateAndParseJSON(r *http.Request, schema ValidationRule) error {
+func (v *Validator) ValidateAndParseJSON(r *http.Request, s interface{}) error {
 	// Parse JSON body
-	if err := json.NewDecoder(r.Body).Decode(schema.GetSchema()); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(s); err != nil {
 		return fmt.Errorf("invalid JSON: %w", err)
 	}
 
 	// Validate struct
-	return v.ValidateStruct(schema.GetSchema())
+	return v.ValidateStruct(s)
 }
 
 func (v *Validator) formatValidationErrors(err error) ValidationErrors {
